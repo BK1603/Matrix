@@ -23,8 +23,7 @@ void Matrix::print(){
 }
 
 //tranpose
-//wanted a static implementation, but well
-//segmentation fault :'(
+//giving a segmentation fault. ISSUE
 Matrix Matrix::transpose() const{
         Matrix result(this->columns, this->rows);
         //some error checking here...
