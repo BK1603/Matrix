@@ -10,8 +10,6 @@ public:
 	float **ele;
 
 	Matrix(int i, int j);
-	
-	void print();
 
 	//oaverloaded operators:
 	//scalar operations
@@ -28,9 +26,15 @@ public:
 	//copy ctor
 	void operator = (const Matrix &b);
 
-	//utility functions:
-	//transpose a matrix
+	//Mathematical functions:
+	//transpose
 	Matrix transpose() const;
+
+	//map a function to all values
+	Matrix map(float (*functionToMap)(float x)) const;
+
+	//utility functions:
+	void print();
 	//function to map a algebric function to all elements, takes a function and matrix as arguements, returns matrix
 
         ~Matrix(){

@@ -107,3 +107,12 @@ Matrix Matrix::transpose() const{
         result.print();
         return result;
 }
+
+//function to map a function to all values
+Matrix Matrix::map(float (*functionToMap)(float x)) const{
+	Matrix result(this->rows, this->columns);
+	for(int i = 0; i < this->rows; i++)
+		for(int j = 0; j < this->columns; j++)
+			result.ele[i][j] = (*functionToMap)(this->ele[i][j]);
+	return result;
+}
