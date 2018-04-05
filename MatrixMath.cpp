@@ -97,3 +97,13 @@ Matrix Matrix::operator / (const float a) const{
         return result;
 }
 
+//tranpose
+Matrix Matrix::transpose() const{
+        Matrix result(this->columns, this->rows);
+        //some error checking here...
+        for(int i = 0; i < result.rows; i++)
+                for(int j = 0; j < result.columns; j++)
+                        result.ele[i][j] = this->ele[j][i];
+        result.print();
+        return result;
+}
