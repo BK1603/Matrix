@@ -1,5 +1,6 @@
 #include<iostream>
 #include"Matrix.h"
+#include<limits>
 
 //ctor
 Matrix::Matrix(int i, int j){
@@ -9,7 +10,7 @@ Matrix::Matrix(int i, int j){
         for(int n = 0; n < rows; n++){
                 ele[n] = new float[columns];
                 for(int m = 0; m < columns; m++)
-                        ele[n][m] = NULL;
+                        ele[n][m] = std::numeric_limits<float>::quiet_NaN();		//to initialise the Matrix with nan
         }
 }
 
@@ -23,13 +24,13 @@ void Matrix::print(){
 }
 
 //tranpose
-//giving a segmentation fault. ISSUE
 Matrix Matrix::transpose() const{
         Matrix result(this->columns, this->rows);
         //some error checking here...
         for(int i = 0; i < result.rows; i++)
-                for(int j = 0; i < result.columns; j++)
+                for(int j = 0; j < result.columns; j++)
                         result.ele[i][j] = this->ele[j][i];
+	result.print();
         return result;
 }
 
